@@ -1,0 +1,107 @@
+.blackStyle{
+    --bg-color:#e0e0e0;
+    --color-link-menu:#151515;
+    --color-logo:#ff4c0d;
+    --color-blur:linear-gradient(119.74deg, rgb(252, 80, 31) 12.772%,rgba(252, 80, 31, 0) 59.512%);
+    --color-card:#f1f1f1;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-size: 14px;
+    line-height: 1.5;
+    background-color: var(--bg-color);
+    color:$main-color;
+    @extend %Gilroy-400;
+    overflow-x: hidden;
+    &.open--menu{
+        overflow: hidden;
+    }
+    &:before{
+        content:"";
+        position: absolute;
+        top: 0;
+        right: -409px;
+        width: 859px;
+        height: 863px;
+        top: -445px;
+        filter: blur(120px);
+        background: var(--color-blur);
+        opacity: 0.5;
+        z-index: -1;
+        transform: rotate(-90.00deg);
+    }
+    
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+}
+
+.main{
+    flex:1;
+    position: relative;
+}
+
+.container{
+    max-width: 1190px;
+    margin: 0 auto;
+    padding: $padding-container;
+}
+
+//////////////////////////////////////////////////////////////////////////////////
+
+.blackStyle{
+    .product__item-title,
+    .product__item-text,
+    .safety__item-title,
+    .safety__item-text,
+    .top__title,
+    .buy__title,
+    .buy__info-text,
+    .buy__info-item,
+    .mobileapp__text,
+    .fag__text,
+    .fag__question,
+    .fag__answer,
+    .footer,
+    .footer a,
+    .reviewsmodal__title,
+    .fagmodal__title{
+        color:#151515;
+    }
+    .product__item-decor,
+    .safety__item-decor,
+    .fagmodal__btn,
+    .reviewsmodal__btn{
+        background-color: #151515;
+    }
+    .buy__close{
+        &:before,
+        &:after{
+            background-color: #151515;
+        }
+    }
+    .buy .buy__link{
+        &:hover{
+            background-color: #151515;
+            &:before{
+                color:#f1f1f1;
+            }
+        }
+    }
+    .fagmodal__btn,
+    .reviewsmodal__btn{
+        color:#f1f1f1;
+        &:hover{
+            background-color: $accent-color;
+            &:before{
+                
+            }
+        }
+    }
+}

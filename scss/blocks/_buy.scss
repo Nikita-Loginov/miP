@@ -1,0 +1,185 @@
+@import "base/_vars.scss";
+
+.buy{
+    &__box{
+        position: relative;
+        background: var(--color-card);
+        border-radius: $borderRadiusCard;
+        padding: 60px 80px;
+        display: flex;
+        justify-content: space-between;
+    }
+    &__inner{
+        position: relative;
+    }
+    &__content{
+        flex-basis: 540px;
+        position: relative;
+        z-index: 2;
+    }
+    &__title{
+        @extend %title;
+        margin-bottom: 5px;
+    }
+    &__price{
+        font-size: 30px;
+        color:$accent-color;
+        line-height: 1;
+        margin-bottom: 30px;
+    }
+    &__btnbox{
+        margin-bottom: 200px;
+    }    
+    &__link{
+        @extend %btn; 
+    }
+    &__info{
+        flex-basis: 200px;
+        margin-left: auto;
+    }
+    &__info-text{
+        margin-bottom: 25px;
+        @extend %text;
+    }
+    &__info-item{
+        &:not(:last-of-type){
+            margin-bottom: 10px;
+        }
+    }
+    &__imgbox{
+        display: none;
+        &--media{
+            display: block;
+        }
+        &.activeImg{
+            .buy__img--while{
+                transform: translateX(300%);
+                opacity: 0;
+            }
+            .buy__img--black{
+                transform: translateX(0%);
+                opacity: 1;
+            }
+        }
+        
+    }
+    &__img{
+        position: absolute;
+        right: 0;
+        bottom: 45px;
+        z-index: 1;
+        object-fit: contain;
+        transition: transform 1s;
+        &--black{
+            transform: translateX(300%);
+            opacity: 0;
+        }
+        
+    }
+    .buy__title{
+        color:$main-color;
+    }
+    .buy__link{
+        background-color: $accent-color;
+        &:hover{
+            background-color: $button-color;
+            &:before{
+                color:#151515;
+            }
+            
+        }
+    }
+    &__info-text{
+        display: none;
+    }
+    &__info--media{
+        display: none;
+    }
+    &__close{
+        display: none;
+    }
+    @media(max-width:960px){
+        &__info{
+            display: none;
+        }
+        &__infobox{
+            cursor: pointer;
+        }
+        &__info--media{
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            overflow: hidden;
+            .buy__info-item{
+                color:#f1f1f1;
+                max-height: 0;
+                overflow: hidden;
+                transform: translateX(-40px);
+                transition: all 1s;
+            }
+        }
+        &__link{
+            margin-bottom: 10px;
+        }
+        &__infobox{
+            &--active{
+                .buy__info-item{
+                    max-height: 400px;
+                    transform: translateX(0px);
+                    transition: max-height 4s,transform 1s;
+                }
+            }
+        }
+        &__box{
+            padding: 40px;
+        }
+        &__info-text{
+            margin-bottom: 10px;
+        }
+        &__img{
+            right: -200px;
+            bottom: 100px;
+        }
+        &__info-text{
+            display: block;
+        }
+    }
+    @media(max-width:640px){
+        &__box{
+            flex-direction: column;
+        }
+        &__imgbox{
+            display: block;
+            &--media{
+                display: none;
+            }
+            &.activeImg{
+                .buy__img--while{
+                    max-height: 0;
+                    overflow: hidden;
+                }
+                .buy__img--black{
+                    max-height: 100%;
+                }
+            }
+        }    
+        &__img {
+            position: static;
+            width: 100%;
+            height: auto;
+        }
+        &__img--black{
+            max-height: 0;
+            overflow: hidden;
+        }
+        &__btnbox{
+            margin-bottom: 30px;
+        } 
+        &__link{
+            width: 100%;
+        }
+        &__info-text,
+        &__info-item{
+            text-align: center;
+        }           
+    }
+}

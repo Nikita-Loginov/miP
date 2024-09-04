@@ -1,0 +1,64 @@
+@import "base/_vars.scss";
+
+.modalBuy{
+    position: fixed;
+    inset:0;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: rgb(21, 21, 21,0.7);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 1s;
+    &.activeModal{
+        opacity: 1;
+        visibility: visible;
+        .buy__box{
+            scale:1;
+        }
+        .buy__imgbox{
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+    .container{
+        width: 100%;
+    }
+    .buy__box{
+        scale: 0;
+        transition: all 1s;
+    }
+    .buy__close{
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        top: 15px;
+        right: 15px;
+        display: block;
+        cursor: pointer;
+        z-index: 99;
+        &:before,
+        &:after{
+            position: absolute;
+            content:"";
+            width: 100%;
+            height: 3px;
+            border-radius: 10px;
+            background-color: $main-color;
+            left: 0;
+        }
+        &:before{
+            top: 50%;
+            transform: translateY(-50%);
+            rotate:45deg;
+        }
+        &:after{
+            bottom: 50%;
+            transform: translateY(50%);
+            rotate:-45deg;
+        }
+    }
+}

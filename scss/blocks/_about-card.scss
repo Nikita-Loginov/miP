@@ -1,0 +1,74 @@
+@import "base/_vars.scss";
+
+.about-card{
+    background: linear-gradient(0.00deg, rgb(14, 14, 14) 35.176%,rgb(14, 14, 14) 35%);
+    border-radius: $borderRadiusCard;
+    transition: all 1s;
+    &:hover{
+        border-radius:30px;
+        .about-card__img{
+            scale:1.1;
+            transform: translate(10px);
+        }
+    }
+    
+    &__img{
+        text-align: center;
+        transition: scale .5s, transform 0.8s ;
+    }
+    &__content{
+        display: flex;
+        flex-direction: column;
+        gap:15px;
+        margin: 0 clamp(2.5rem, 1.045rem + 3.64vw, 3.75rem) clamp(2.5rem, 1.045rem + 3.64vw, 3.75rem);
+    }
+    &__title{
+        @extend %text;
+    }
+    @media(max-width:1023px) {
+        &__img{
+            img{
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+    @media(max-width:960px){
+        &__img{
+            img{
+                width: 450px;
+                height: auto;
+            }
+        }
+    }
+    @media(max-width:640px){
+        background: transparent;
+        border-radius:0;
+        &:hover{
+            .about-card__img{
+                scale:1;
+                transform: translate(0px);
+            }
+            
+        }
+        &__img{
+            background: linear-gradient(0.00deg, rgb(14, 14, 14) 35.176%,rgb(14, 14, 14) 35%);
+            border-radius: $borderRadiusCard;
+            margin-bottom: 15px;
+            img{
+                transition: all 1s;
+                width: 100%;
+                height: auto;
+            }
+            &:hover{
+                img{
+                    scale:1.1;
+                    transform: translate(10px);
+                }
+            }
+        }
+        &__content{
+            margin: 0;
+        }
+    }
+}

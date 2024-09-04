@@ -1,0 +1,119 @@
+@import "base/_vars.scss";
+
+.reviews{
+    padding: clamp(6.25rem, 5.675rem + 2.45vw, 7.5rem) 0 20px;
+    &__inner{
+        display: flex;
+        flex-direction: column;
+        gap:30px;
+        position: relative;
+        &:before{
+            position: absolute;
+            position: absolute;
+            content:"";
+            width: 943px;
+            height: 948px;
+            top: 0;
+            right: 0;
+            filter: blur(280px);
+            background: var(--color-blur);
+            z-index: -1;
+            opacity: 0.5;
+        }
+    }
+    &__title{
+        @extend %title;
+    }
+    &__btnbox{
+        display: flex;
+        justify-content: space-between;
+        gap:10px;
+        align-items: flex-start;
+    }
+    &__btn{
+        @extend %btn;
+    }
+    &__btn-arrowbox{
+        display: flex;
+        align-items: center;
+        gap:15px;
+        button{
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            background-color: #f1f1f1;
+            @extend %flexCenter;
+            transition: background-color .8s;
+            &:hover{
+                background-color: $accent-color;
+                svg{
+                    path,
+                    rect{
+                        fill:#f1f1f1;
+                    }
+                }
+            }
+        }
+            
+    }
+    &__btn-arrow-next{
+        svg{
+            rotate:-180deg;
+            path,
+            rect{
+            transition: all .5s;
+            } 
+        }       
+    }
+    @media(max-width:640px){
+        &__btnbox{
+            align-items: center;
+            flex-direction: column-reverse;
+            gap:30px;
+        }
+        &__btn-arrowbox{
+            display: none;
+        }
+        &__btn{
+            width: 100%;
+        }
+    }
+}
+
+.reviews-slide{
+    background-color: #151515;
+    border-radius: $borderRadiusCard;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap:15px;
+    &__title{
+        @extend %text;
+        padding-bottom: 15px;
+        position: relative;
+        &:before{
+            content:"";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100px;
+            height: 3px;
+            background-color: $accent-color;
+        }
+    }    
+    &__textbox{
+        p{
+            &:not(:last-of-type){
+                margin-bottom: 15px;
+            }
+        }
+        ul{
+            margin-top: 15px;
+            li{
+                &:not(:last-of-type){
+                    margin-bottom: 3px;
+                }
+            }
+        }
+    }
+}

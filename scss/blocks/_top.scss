@@ -1,0 +1,103 @@
+.top{
+    padding-top: 220px;
+    margin-bottom: clamp(1.875rem, -3.589rem + 23.31vw, 13.75rem);
+    position: relative;
+    &__title{
+        margin-bottom: clamp(0.938rem, 0.511rem + 1.82vw, 1.875rem);
+        @extend %Gilroy-600;
+        color:#f1f1f1;
+        font-size: clamp(1.875rem, 0.455rem + 6.06vw, 5rem);
+        line-height: 1;
+        text-align: center;
+    }
+    &__text{
+        text-align: center;
+        @extend %Gilroy-600;
+        font-size: clamp(1rem, 0.602rem + 1.7vw, 1.875rem);
+        margin-bottom: clamp(1.875rem, 1.023rem + 3.64vw, 3.75rem);
+        color:$accent-color;
+    }
+
+    
+    &__imgbox{
+        &.activeImg{
+            .top__img--while{
+                transform: translateX(300%);
+            }
+            .top__img--black{
+                transform: translateX(0%);
+            }
+        }
+        &--media{
+            display: none;
+        }
+    }
+    &__img{
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: -1;
+        object-fit: contain;
+        transition: all 1.2s;
+        &--black{
+            transform: translateX(300%);
+        }
+        
+    }
+    @media(max-width:960px){
+        padding-top: 120px;
+        &__inner{
+            display: flex;
+            flex-direction: column-reverse;
+        }
+        .top__imgbox{
+            display: none;
+            position: relative;
+            &.activeImg{
+                
+                .top__imgbox--media{
+                    display: flex;
+                }
+                .top__img--while{
+                    position: relative;
+                }
+                .top__img--black{
+                    position: absolute;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+            }
+        }
+        .top__imgbox--media{
+            display: grid;
+            
+        }
+        &__img{
+            position: static;
+            &--while{
+                width: 400px;
+                height: 427px;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            &--black{
+                position: relative;
+                width: 400px;
+                height: 427px;
+                transform: translateX(500px);
+                left: 50%;
+            }
+        }
+    }
+    @media(max-width:640px){
+        &__btnbox{
+            width: 100%;
+        }
+    }
+    @media(max-width:500px){
+        &__img{
+            width: 100%;
+        }
+    }
+}

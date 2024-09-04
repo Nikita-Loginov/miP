@@ -1,0 +1,56 @@
+@import "base/_vars.scss";
+
+.modal{
+    padding: 120px 0;
+    margin-bottom: clamp(0rem, -1.725rem + 7.36vw, 3.75rem);
+    background-image: url(../img/modal/bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    &:before,
+    &:after{
+        position: absolute;
+        content:"";
+        z-index: -1;
+        background-repeat: no-repeat;
+    }
+    &:before{
+        top: -350px;
+        right: -70px;
+        width: 1522px;
+        height: 945px;
+        background-image: url(../img/modal/lineTop.svg);
+    }
+    &:after{
+        transform: rotate(-24.61deg);
+        top: 160px;
+        right: -1450px;
+        width: 1755px;
+        height: 1133px;
+        background-image: url(../img/modal/lineBottom.svg);
+    }
+    &__logo{
+        display: inline-block;
+        margin-bottom: 150px;
+    }
+    &__info{
+        display: flex;
+        flex-direction: column;
+        max-width: 400px;
+        gap:clamp(0.938rem, 0.506rem + 1.84vw, 1.875rem);
+    }
+    &__title{
+        @extend %title;
+    }
+    .modal__title{
+        color:$main-color
+    }
+    @media(max-width:1023px) {
+        background-position: right center;
+        padding: 100px 0;
+    }
+    @media(max-width:640px){
+        background-position: center;
+        padding: 60px 0;
+    }
+}

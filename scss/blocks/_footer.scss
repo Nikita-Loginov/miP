@@ -1,0 +1,30 @@
+@import "base/_vars.scss";
+
+.footer{
+    padding: clamp(2.5rem, 1.925rem + 2.45vw, 3.75rem) 0;
+    &__inner{
+        display: flex;
+        justify-content: space-between;
+        gap:15px;
+    }
+    &__protection,
+    &__info{
+        display: flex;
+        flex-direction: column;
+        gap:5px;
+        a{
+            color:$main-color;
+        }
+    }
+    &__info{
+        text-align: right;
+    }
+    @media(max-width:550px){
+        &__inner{
+            flex-direction: column;
+        }
+        &__link{
+            text-align: left;
+        }
+    }
+}

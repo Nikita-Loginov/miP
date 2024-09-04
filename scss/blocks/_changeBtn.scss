@@ -1,0 +1,52 @@
+.changeBtn{
+    display: inline-flex;
+    border-radius: 30px;
+    border: 3px solid #f1f1f1;
+    position: relative;
+    transition: all 1s;
+    &:before{
+        position: absolute;
+        content:"";
+        width: 50%;
+        height: 100%;
+        transform: translateX(-3px);
+        background-color: #f1f1f1;
+        border-radius: inherit;
+        z-index: 0;
+        transition: transform 1s;
+    }
+    &.btnActiv{
+        border-color: #151515;
+        &:before{
+            transform: translateX(102%);
+            background-color: #151515;
+        }
+        .top__btn--black{
+            color:#f1f1f1;
+        }
+        .top__btn--while{
+            color:#151515;
+        }
+    }
+    &__btn{
+        @extend %flexCenter;
+        min-height: $minHeight-btn;
+        @include padding(0,30px,0,30px);
+        @include borderRadius($borderRadiusBtn);
+        transition: all .5s;
+        font-size: 16px;
+        line-height: 1.5;
+        @extend %Gilroy-700;
+        color:#151515;
+        background-color: transparent;
+        flex-basis: 50%;
+        position: relative;
+        z-index: 3;
+        &--black{
+            color:#f1f1f1;
+        }
+    }
+    @media(max-width:640px){
+        width: 100%;
+    }
+}

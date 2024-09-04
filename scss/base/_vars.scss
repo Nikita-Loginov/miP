@@ -1,0 +1,170 @@
+:root{
+    --bg-color:rgb(34, 34, 34);
+    --bg-color-menu:rgb(34, 34, 34,0.4);
+    --color-link-menu:$main-color;
+    --color-logo:#f1f1f1;
+    --color-blur:linear-gradient(119.74deg, rgba(252, 80, 31, 0.5) 12.772%, rgba(252, 80, 31, 0) 59.512%);
+    --color-card:#151515;
+}
+
+//COLORS
+$main-color:#f1f1f1;
+$accent-color:#ff4c0d;
+$text-color:#f1f1f1;
+$title-color:#ff4c0d;
+$button-color:#f1f1f1;
+$input-color:#f1f1f1;
+$textarea-color:#f1f1f1;
+//PADDING
+$padding-container:0px 15px;
+@mixin padding($pt,$pr,$pb,$pl){
+    padding:$pt $pr $pb $pl;
+}
+
+//MIN-HEIGHT
+$minHeight-btn:54px;
+$minHeight-textarea:154px;
+$minHeight-input:54px;
+//BORDER
+@mixin border($borderWidth,$borderColor,$borderStyle){
+    border:$borderWidth $borderColor $borderStyle;
+}
+//BORDERRADIUS
+$borderRadiusBtn:25px;
+$borderRadiusCard:15px;
+$borderRadiusInput:15px;
+$borderRadiusTextarea:15px;
+@mixin borderRadius($borderRadiusWidth){
+    border-radius:$borderRadiusWidth;
+}
+
+
+%Gilroy-400{
+    font-family: "Gilroy",sans-serif;
+    font-weight: 400;
+}
+
+%Gilroy-500{
+    font-family: "Gilroy",sans-serif;
+    font-weight: 500;
+}
+
+%Gilroy-600{
+    font-family: "Gilroy",sans-serif;
+    font-weight: 600;
+}
+
+%Gilroy-700{
+    font-family: "Gilroy",sans-serif;
+    font-weight: 700;
+}
+
+%title{
+    font-size: clamp(1.875rem, 1.444rem + 1.84vw, 2.813rem);
+    line-height: 1.1;
+    color:$title-color;
+    @extend %Gilroy-500;
+}
+
+%text{
+    font-size: 20px;
+    line-height: 1.2;
+    color:$text-color;
+    @extend %Gilroy-600;
+}
+
+%flexCenter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+%btn{
+    @extend %flexCenter;
+    min-height: $minHeight-btn;
+    @include padding(0,30px,0,30px);
+    @include borderRadius($borderRadiusBtn);
+    background-color: $button-color;
+    transition: all .5s;
+    font-size: 16px;
+    line-height: 1.5;
+    @extend %Gilroy-700;
+    color:#151515;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    span{
+        transition: all .5s;
+    }
+    &:before{
+        position: absolute;
+        content: attr(title);
+        transform:translateX(-750%);
+        transition: all .5s;
+        color:#f1f1f1;
+    }
+    &:hover{
+        border-radius: 30px;
+        background-color: #ee6c3d;
+        span{
+            transform: translateX(750%);
+        }
+        &:before{
+            transform:translateX(0px);
+        }
+    }
+}
+
+%input{
+    @extend %flexCenter;
+    @include padding(0,20px,0,20px);
+    @include border(1px,$main-color,solid);
+    @include borderRadius($borderRadiusInput);
+    min-height: $minHeight-input;
+    background-color: $input-color;
+    box-shadow: inset -7px -6px 10px 0px #796d6d, inset -10px -10px 10px #f1f1f1;
+    &::placeholder{
+        font-size: 18px;
+        
+    }
+}
+
+%textarea{
+    // @extend %flexCenter;
+    @include padding(10px,20px,0,20px);
+    @include border(1px,$main-color,solid);
+    @include borderRadius($borderRadiusTextarea);
+    min-height: $minHeight-textarea;
+    background-color: $textarea-color;
+    box-shadow: inset -7px -6px 10px 0px #796d6d, inset -10px -10px 10px #f1f1f1;
+    resize: none;
+    font-size: 18px;
+    &::placeholder{
+        font-size: 18px;
+    }
+}
+
+%linkHover{
+    position: relative;
+    transition: all .5s;
+    &:after{
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        background-color: $accent-color;
+        left: 0;
+        bottom: -3px;
+        scale:0;
+        transform-origin: right;
+        transition: scale .8s;
+        border-radius: 30px;
+    }
+    &:hover{
+        &:after{
+            scale:1;
+            transform-origin: left;
+        }
+        
+    }
+}
